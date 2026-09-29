@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-mist text-ink font-sans antialiased; }
+  select, input { @apply outline-none; }
+  :focus-visible { @apply ring-2 ring-lime ring-offset-2 ring-offset-deep; }
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-2xl bg-white/10 px-4 py-3.5 text-base text-white
+           border border-white/15 transition-colors
+           hover:bg-white/15 focus:border-lime;
+  }
+  .field option { @apply text-ink; }
+  .chip {
+    @apply rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-medium
+           text-ink transition-colors hover:border-lagoon hover:bg-lagoon hover:text-white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

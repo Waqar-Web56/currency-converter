@@ -1,0 +1,15 @@
+{
+  "name": "currency-converter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fast currency converter powered by the Frankfurter API",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "tailwindcss -i ./src/input.css -o ./public/styles.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": { "express": "^4.19.2" },
+  "devDependencies": { "tailwindcss": "^3.4.10" }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Currency Converter – USD to PKR and 150+ currencies</title>
+  <meta name="description" content="Convert USD to PKR, EUR to PKR and 150+ other currencies with live exchange rates from central banks." />
+  <meta name="theme-color" content="#123F40" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💱</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="min-h-screen">
+  <header class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
+    <a href="/" class="font-display text-xl font-bold tracking-tight text-deep">Kambio</a>
+    <span class="text-sm text-lagoon">Live central-bank rates</span>
+  </header>
+
+  <main class="mx-auto grid max-w-6xl gap-8 px-5 pb-16 pt-4 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-14 lg:pt-10">
+    <!-- Hero: the live rate is the memorable element -->
+    <section aria-live="polite">
+      <p class="text-base text-lagoon">Today's rate</p>
+      <h1 class="mt-2 font-display text-4xl font-bold leading-[1.05] tracking-tight text-deep sm:text-6xl">
+        <span id="heroLine">1 USD =</span><br />
+        <span id="heroRate" class="text-lagoon">—</span>
+      </h1>
+      <p id="heroMeta" class="mt-4 max-w-md text-base text-ink/70">
+        Convert between 150+ currencies, including the Pakistani rupee, with rates published by central banks.
+      </p>
+
+      <div class="mt-8">
+        <p class="mb-3 text-sm font-medium text-ink/70">Popular pairs</p>
+        <div id="chips" class="flex flex-wrap gap-2"></div>
+      </div>
+    </section>
+
+    <!-- Converter -->
+    <section class="rounded-[2rem] bg-deep p-5 text-white shadow-2xl shadow-deep/30 sm:p-8" aria-label="Currency converter">
+      <label for="amount" class="text-sm font-medium text-white/70">Amount</label>
+      <input id="amount" type="text" inputmode="decimal" autocomplete="off" value="100"
+             class="field mt-2 font-display text-3xl font-bold" aria-describedby="err" />
+
+      <div class="mt-5 grid grid-cols-[1fr_auto_1fr] items-end gap-2 sm:gap-3">
+        <div>
+          <label for="from" class="text-sm font-medium text-white/70">From</label>
+          <select id="from" class="field mt-2 truncate"></select>
+        </div>
+        <button id="swap" type="button" aria-label="Swap currencies"
+                class="mb-0.5 grid h-12 w-12 place-items-center rounded-full bg-lime text-ink transition-transform hover:rotate-180 active:scale-95">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v14M7 18l-3-3M7 18l3-3M17 20V6M17 6l-3 3M17 6l3 3"/></svg>
+        </button>
+        <div>
+          <label for="to" class="text-sm font-medium text-white/70">To</label>
+          <select id="to" class="field mt-2 truncate"></select>
+        </div>
+      </div>
+
+      <div class="mt-6 rounded-2xl bg-black/20 p-5" aria-live="polite">
+        <p id="fromText" class="text-sm text-white/70">&nbsp;</p>
+        <p id="result" class="mt-1 break-words font-display text-4xl font-bold text-lime sm:text-5xl">—</p>
+        <p id="rateText" class="mt-3 text-sm text-white/70">&nbsp;</p>
+      </div>
+      <p id="err" role="alert" class="mt-3 min-h-[1.25rem] text-sm text-coral"></p>
+    </section>
+  </main>
+
+  <footer class="border-t border-ink/10 px-5 py-6 text-center text-sm text-ink/60">
+    Rates from <a class="underline hover:text-lagoon" href="https://frankfurter.dev" target="_blank" rel="noopener">Frankfurter</a>. For information only, not financial advice.
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
